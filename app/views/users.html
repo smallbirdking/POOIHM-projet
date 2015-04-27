@@ -1,0 +1,20 @@
+<div>
+  <body ng-controller="UsersCtrl">
+  <form novalidate class="simple-form">
+    ID: <input type="text" ng-model="user.id"/><br />
+    Name: <input type="text" ng-model="user.name"/><br />
+    Surname: <input type="text" ng-model="user.surname"/><br />
+    <input type="submit" ng-click="post(user)" value="POST" />
+    <input type="submit" ng-click="put(user)" value="PUT" />
+    <input type="submit" ng-click="search(user.id)" value="SEARCH" />
+  </form>
+  <pre>user = {{user | json}}</pre>
+
+  <h3>Search result</h3>
+  <p>{{userSearch}}</p>
+  <h3>Liste des utilisateurs:</h3>
+  <ul>
+    <li ng-repeat="user in users"> {{user.id}}, {{user.name}}, {{user.surname}}</li>
+  </ul>
+  </body>
+</div>
