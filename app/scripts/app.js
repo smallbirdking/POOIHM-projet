@@ -15,17 +15,27 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'angularUtils.directives.dirPagination'
   ])
   .config(['$routeProvider',function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/manpage.html',
         controller: 'MainCtrl'
       })
       .when('/users', {
         templateUrl: 'views/users.html',
         controller: 'UsersCtrl'
+      })
+      .when('/contact', {
+        templateUrl: 'views/pages.html',
+        controller: 'MyController'
+      })
+      .when('/input', {
+        templateUrl: 'views/input.html',
+        controller: 'InputCtrl'
       })
       .otherwise({
         redirectTo: '/'

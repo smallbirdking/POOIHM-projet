@@ -18,22 +18,28 @@ angular.module('projectIhmApp')
       'Karma'
     ];
 
-    User.all(function(users){
-      $scope.users = users;
-    },
-    function(error){
-      console.log(error);
-    });
+    getAllUsers();
+    function getAllUsers(){
+      User.all(function(users){
+          $scope.users = users;
+        },
+        function(error){
+          console.log(error);
+        });
+    }
+
 
     $scope.post = function(user) {
       if(user.name !== '' || user.surname !== ''){
         User.post(user);
+        getAllUsers();
       }
     };
 
     $scope.put = function(user) {
       if(user.id !== '' && (user.name !== '' || user.surname !== '')){
         User.put(user.id,user);
+        getAllUsers();
       }
     };
 
@@ -46,6 +52,13 @@ angular.module('projectIhmApp')
       },
       id);
     };
+
+
+
+
+
+
+
 
 
   }]);
