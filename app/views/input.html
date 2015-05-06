@@ -3,7 +3,7 @@
     <ul class="thumbnails">
       <li ng-repeat="note in notes">
         <my-note class="span2 thumbnail" delete="deleteNote(note.id)" note="note">
-          <button class="btn btn-large close pull-right" ng-click="delete()">&times;</button>
+          <button class="btn btn-large close pull-right" ng-click="deleteNote(note.id)">&times;</button>
           <hr/>
           <p>{{note.title}}</p>
         </my-note>
@@ -20,7 +20,7 @@
         <form ng-submit="addNote(noteTitle);resetForm();">
           <input class="span3" ng-model="noteTitle" size="16" type="text" placeholder="Add a note">
           <button class="btn btn-success" type="button"
-                  ng-disabled="!noteTitle" ng-click="addNote(noteTitle);resetForm();">Add Note
+                  ng-disabled="!noteTitle" ng-click="addNote(noteTitle);resetForm();">add Note
           </button>
         </form>
       </div>
