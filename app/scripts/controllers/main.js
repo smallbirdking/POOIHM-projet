@@ -6,12 +6,57 @@
  * # MainCtrl
  * Controller of the projectIhmApp
  */
-angular.module('projectIhmApp').controller('MainCtrl', function ($scope) {
+angular.module('projectIhmApp').controller('MainCtrl', function ($scope,User) {
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',
     'Karma'
   ];
+
+  getAllUsers();
+  function getAllUsers(){
+    User.all(function(users){
+        $scope.users = users;
+      },
+      function(error){
+        console.log(error);
+      }
+    );
+  }
+
+
+  $scope.post = function(user) {
+    if(user.title !== '' || user.description !== ''){
+      User.post(user);
+      getAllUsers();
+    }
+  };
+
+  $scope.put = function(user) {
+    if(user.id !== '' && (user.title !== '' || user.description !== '')){
+      User.put(user.id,user);
+      getAllUsers();
+    }
+  };
+
+  $scope.search = function(id) {
+    User.get(function(users){
+        $scope.userSearch = users;
+      },
+      function(error){
+        console.log(error);
+      },
+      id);
+  };
+
+  $scope.delet = function(id) {
+    if(id !== '') {
+      User.delete(id);
+      getAllUsers();
+    }
+  };
+
+
   $scope.today = function() {
     $scope.dt = new Date();
   };

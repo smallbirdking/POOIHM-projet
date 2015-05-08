@@ -1,28 +1,26 @@
-'use strict';
+/*'use strict';
 
 
 angular.module('projectIhmApp')
+
   .service('notesService', function () {
     var data = [
-      {id:1, title:'Note 1'},
-      {id:2, title:'Note 2'},
-      {id:3, title:'Note 3'},
-      {id:4, title:'Note 4'},
-      {id:5, title:'Note 5'},
-      {id:6, title:'Note 6'},
-      {id:7, title:'Note 7'},
-      {id:8, title:'Note 8'}
+      {id:1, title:'Note 1' , contents: 'kkkkk'},
+      {id:2, title:'Note 2', contents: 'pppp'}
     ];
+
+
 
     return {
       notes:function () {
         return data;
       },
-      addNote:function (noteTitle) {
+      addNote:function (noteTitle,noteTitleName) {
         var currentIndex = data.length + 1;
         data.push({
-          id:currentIndex, title:noteTitle
+          id:currentIndex, title:noteTitle , contents: noteTitleName
         });
+
       },
       deleteNote:function (id) {
         var oldNotes = data;
@@ -54,7 +52,8 @@ angular.module('projectIhmApp')
       restrict:'E',
       scope:{
         delete:'&',
-        note:'='
+        note:'=',
+        titile:'='
       },
       link:function (scope, element, attrs) {
         var $el = $(element);
@@ -67,16 +66,19 @@ angular.module('projectIhmApp')
       }
     };
   })
+
   .controller('InputCtrl', ['$scope', 'notesService', function ($scope, notesService) {
     $scope.getNotes = function () {
       return notesService.notes();
     };
 
-    $scope.addNote = function (noteTitle) {
-      if(noteTitle != '') {
-        notesService.addNote(noteTitle);
+    $scope.addNote = function (noteTitle,noteTitleName) {
+      if(noteTitle != ''||noteTitleName!= '') {
+        notesService.addNote(noteTitle,noteTitleName);
       }
     };
+
+
 
     $scope.deleteNote = function (id) {
       notesService.deleteNote(id);
@@ -84,5 +86,22 @@ angular.module('projectIhmApp')
 
     $scope.resetForm = function() {
       $scope.noteTitle = '';
+      $scope.noteTitleName = '';
+
     };
   }]);
+
+function AutoGrowTextArea(textField)
+{
+  if (textField.clientHeight < textField.scrollHeight)
+  {
+    textField.style.height = textField.scrollHeight + "px";
+    if (textField.clientHeight < textField.scrollHeight)
+    {
+      textField.style.height =
+        (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+    }
+  }
+}
+
+*/

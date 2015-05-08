@@ -21,23 +21,26 @@ angular.module('projectIhmApp')
     getAllUsers();
     function getAllUsers(){
       User.all(function(users){
+
           $scope.users = users;
+          $scope.userlength= users.length;
         },
         function(error){
           console.log(error);
-        });
+        }
+      );
     }
 
 
     $scope.post = function(user) {
-      if(user.name !== '' || user.surname !== ''){
+      if(user.title !== '' || user.description !== ''){
         User.post(user);
         getAllUsers();
       }
     };
 
     $scope.put = function(user) {
-      if(user.id !== '' && (user.name !== '' || user.surname !== '')){
+      if(user.id !== '' && (user.title !== '' || user.description !== '')){
         User.put(user.id,user);
         getAllUsers();
       }
@@ -53,12 +56,26 @@ angular.module('projectIhmApp')
       id);
     };
 
-
-
-
-
-
-
-
+    $scope.delet = function(id) {
+      if(id !== '') {
+        User.delete(id);
+        getAllUsers();
+      }
+    };
 
   }]);
+
+
+
+function AutoGrowTextArea(textField)
+{
+  if (textField.clientHeight < textField.scrollHeight)
+  {
+    textField.style.height = textField.scrollHeight + "px";
+    if (textField.clientHeight < textField.scrollHeight)
+    {
+      textField.style.height =
+        (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+    }
+  }
+}

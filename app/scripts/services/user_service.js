@@ -5,13 +5,13 @@ angular.module('projectIhmApp')
   .factory('User',['$http',function($http) {
     var obj = {
       post: function(data) {
-        $http.post('http://localhost:3000/api/Users',data)
+        $http.post('http://localhost:3000/api/Projects',data)
           .success()
           .error();
       },
 
       get: function (successCB,failCB,useId) {
-        $http.get('http://localhost:3000/api/Users/'+useId)
+        $http.get('http://localhost:3000/api/Projects/'+useId)
           .success(function (Result){
             if (Result.status === 'success') {
               var user = Result.data;
@@ -24,18 +24,18 @@ angular.module('projectIhmApp')
       },
 
       put: function(useId,data) {
-        $http.put('http://localhost:3000/api/Users/'+useId,data)
+        $http.put('http://localhost:3000/api/Projects/'+useId,data)
           .error();
       },
 
       delete: function (useId) {
-        $http.delete('http://localhost:3000/api/Users/'+useId)
+        $http.delete('http://localhost:3000/api/Projects/'+useId)
           .success()
           .error();
       },
 
       all: function (successCB, failCB) {
-        $http.get('http://localhost:3000/api/Users')
+        $http.get('http://localhost:3000/api/Projects')
           .success(function (Result) {
             if (Result.status === 'success') {
               var users = Result.data;

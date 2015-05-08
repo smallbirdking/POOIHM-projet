@@ -1,12 +1,56 @@
 // Code goes here
 'use strict';
 var myApp = angular.module('projectIhmApp');
+var usrl = 2;
+function MyController($scope, User) {
+  getAllUsers();
+  function getAllUsers(){
+    User.all(function (users, userlength){
+        $scope.users = users;
+        $scope.userlength= users.length;
+      },
+      function(error){
+        console.log(error);
+      }
+    );
+  }
 
-function MyController($scope) {
+
+  $scope.post = function(user) {
+    if(user.title !== '' || user.description !== ''){
+      User.post(user);
+      getAllUsers();
+    }
+  };
+
+  $scope.put = function(user) {
+    if(user.id !== '' && (user.title !== '' || user.description !== '')){
+      User.put(user.id,user);
+      getAllUsers();
+    }
+  };
+
+  $scope.search = function(id) {
+    User.get(function(users){
+        $scope.userSearch = users;
+      },
+      function(error){
+        console.log(error);
+      },
+      id);
+  };
+
+  $scope.delet = function(id) {
+    if(id !== '') {
+      User.delete(id);
+      getAllUsers();
+    }
+  };
 
   $scope.currentPage = 1;
   $scope.pageSize = 10;
   $scope.meals = [];
+
 
   var dishes = [
     'noodles',
@@ -35,11 +79,24 @@ function MyController($scope) {
     'on a stick with cheese',
     'in pitta bread'
   ];
-  for (var i = 1; i <= 100; i++) {
+
+
+  var lll=10;
+ // lll=$scope.userlength;
+  for (var i = 1; i <= lll; i++) {
     var dish = dishes[Math.floor(Math.random() * dishes.length)];
     var side = sides[Math.floor(Math.random() * sides.length)];
     $scope.meals.push('meal ' + i + ': ' + dish + ' ' + side);
   }
+  /**
+  var i = 0;
+  angular.forEach($scope.users,function(user){
+    var dish = dishes[Math.floor(Math.random() * dishes.length)];
+    var side = sides[Math.floor(Math.random() * sides.length)];
+    $scope.meals.push('meal ' + user.id + ': ' + dish + ' ' + side);
+  });
+   **/
+
 
   $scope.pageChangeHandler = function(num) {
     console.log('meals page changed to ' + num);
