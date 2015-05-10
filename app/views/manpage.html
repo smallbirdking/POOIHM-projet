@@ -41,13 +41,12 @@
                         <span class="date"><span class="month">{{month(meal.createdAt)}}<span>uary</span></span> <span >{{fuck(meal.createdAt)}}</span><span class="year">, 2013</span></span>
                       </div>
 
-                      <button class="btn btn-large close pull-right" ng-click="delet(user.id)" value="DELET">&times;
+                      <button class="btn btn-large close pull-right" ng-click="delet(meal.id)" value="DELET">&times;
 
                       <p> {{meal.id}}</p></button> <p>{{meal.title}}</p> <hr/><p style="height: 20em">{{meal.description}}</p>
                       </article>
                   </li>
                 </ul>
-
           </div>
 
 
@@ -131,7 +130,7 @@
     </header>
     <ul>
       <li dir-paginate="drink in drinks | filter:q | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
-             <a  href="#/users">{{drink.title}}</a>
+             <a  href="#/{{drink.id}}">{{drink.title}}</a>
       </li>
     </ul>
   </section>

@@ -11,18 +11,21 @@
  * Controller of the pooIhmExemplesApp
  */
 angular.module('projectIhmApp')
-  .controller('UsersCtrl', ['$scope','User', function ($scope,User) {
+  .controller('UsersCtrl', ['$scope','$routeParams','User', function ($scope,$routeParams,User) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    $scope.id=$routeParams.id;
+
 
     getAllUsers();
     function getAllUsers(){
       User.all(function(users){
           $scope.users = users;
           $scope.userlength= users.length;
+          getid( $scope.id);
         },
         function(error){
           console.log(error);
@@ -48,18 +51,35 @@ angular.module('projectIhmApp')
     $scope.search = function(id) {
       User.get(function(users){
         $scope.userSearch = users;
+
+          getid();
       },
       function(error){
         console.log(error);
       },
       id);
+
     };
+
+
 
     $scope.delet = function(id) {
       if(id !== '') {
         User.delete(id);
         getAllUsers();
       }
+    };
+
+
+    var getid = function(id) {
+      User.get(function(users){
+          $scope.user = users;
+
+        },
+        function(error){
+          console.log(error);
+        },
+        id);
     };
 
   }]);

@@ -1,19 +1,20 @@
 <div class="container">
   <body ng-controller="UsersCtrl">
-  <form novalidate class="simple-form">
-    ID: <input type="text" ng-model="user.id"/><br />
-    Name: <input type="text" ng-model="user.title" placeholder="Add a name of your note" /><br />
+  <form novalidate class="simple-form" >
+    ID: <input type="hidden" ng-model="user.id"/><br />
+    Name: <input  id="p1" type="text" ng-model="user.title" placeholder="Add a name of your note" /><br />
     Body: <textarea ng-model="user.description" onkeyup="AutoGrowTextArea(this)" class="span3"  size="16" type="text" placeholder="Add a note" autocapitalize="off" autocomplete="off" wrap="soft" autocapitalize="off" tabindex="0"  style="box-sizing: border-box; overflow-y: hidden; overflow-x: auto; padding-right: 20px; height: 208px;padding-bottom: 32px; ">
+    {{user.description}}
+  </textarea>
 
-    </textarea>
     <input  class="btn2" type="submit" ng-click="post(user)" value="POST" />
     <input type="submit" ng-click="put(user)" value="PUT" />
-    <input type="submit" ng-click="search(user.id)" value="SEARCH" />
+    <input type="submit" ng-click="getid(id)" value="SEARCH" />
   </form>
   <pre>user = {{user | json}}</pre>
 
   <h3>Search result</h3>
-  <p>{{userSearch}}</p>
+  <p>{{user}}</p>
   <!--<h3>Liste des utilisateurs:</h3>
   <ul >
     <li class="span2 thumbnail" ng-repeat="user in users">
@@ -22,5 +23,7 @@
       <p> {{user.id}}</p></button> <p>{{user.title}}</p> <hr/><p>{{user.description}}</p>
     </li>
   </ul>-->
+  <p>ID{{id}}</p>
+  <p>kkk:{{project}}</p>
   </body>
 </div>

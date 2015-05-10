@@ -7,7 +7,7 @@
  * Controller of the projectIhmApp
  */
 angular.module('projectIhmApp')
-  .controller('MainCtrl', function ($scope,User) {
+  .controller('MainCtrl', function ($scope, User) {
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',
@@ -57,6 +57,7 @@ angular.module('projectIhmApp')
     if(id !== '') {
       User.delete(id);
       getAllUsers();
+      window.location.reload();
     }
   };
 
@@ -148,12 +149,12 @@ angular.module('projectIhmApp')
     };
 
     $scope.pageChangeHandler = function(num) {
-      console.log('meals page changed to ' + num);
+      //console.log('meals page changed to ' + num);
     };
 
     $scope.fuck=function (t) {
        var d = new Date(t);
-       console.log(t);
+       //console.log(t);
       var day = d.getDate();
       if(day.toString().length == 1){
         day="0"+day.toString();
@@ -164,13 +165,13 @@ angular.module('projectIhmApp')
     $scope.month=function (t) {
       var d = new Date(t);
       var monthArray=new Array("January","February","March","April","May","June","July","August", "September","October","November","December");
-      console.log(t);
+      //console.log(t);
       var month = d.getMonth();
       return monthArray[month];
     };
 
     $scope.pageChangeHandler = function(num) {
-      console.log('going to page ' + num);
+      //console.log('going to page ' + num);
     };
    /* $(function(){
       $("#starttime").datepicker({
