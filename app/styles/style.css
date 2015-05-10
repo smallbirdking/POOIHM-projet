@@ -57,7 +57,7 @@
 		text-decoration: none;
 		color: inherit;
 	}
-	
+
 	.byline
 	{
 		font-family: 'Open Sans Condensed', sans-serif;
@@ -66,24 +66,24 @@
 		margin-top: 1em;
 		color: #999;
 	}
-	
+
 	header
 	{
 		margin: 0 0 2em 0;
 	}
-	
+
 	blockquote
 	{
 		border-left: solid 5px #ddd;
 		padding: 1em 0 1em 2em;
 		font-style: italic;
 	}
-	
+
 	em, i
 	{
 		font-style: italic;
 	}
-	
+
 	hr
 	{
 		border: 0;
@@ -91,58 +91,58 @@
 		padding: 1.5em 0 0 0;
 		margin: 1.75em 0 0 0;
 	}
-	
+
 	sub
 	{
 		position: relative;
 		top: 0.5em;
 		font-size: 0.8em;
 	}
-	
+
 	sup
 	{
 		position: relative;
 		top: -0.5em;
 		font-size: 0.8em;
 	}
-	
+
 	table
 	{
 		width: 100%;
 	}
-	
+
 	table.style1
 	{
 	}
-	
+
 		table.style1 tbody tr:nth-child(2n+2)
 		{
 			background: #f4f4f4;
 		}
-		
+
 		table.style1 td
 		{
 			padding: 0.5em 1em 0.5em 1em;
 		}
-		
+
 		table.style1 th
 		{
 			text-align: left;
 			font-weight: 700;
 			padding: 0.75em 1em 0.75em 1em;
 		}
-	
+
 		table.style1 thead
 		{
 			border-bottom: solid 1px #ddd;
 		}
-		
+
 		table.style1 tfoot
 		{
 			border-top: solid 1px #ddd;
 			background: #eee;
 		}
-		
+
 		table.style1 tbody
 		{
 		}
@@ -150,7 +150,7 @@
 	form
 	{
 	}
-	
+
 		form input,
 		form select,
 		form textarea
@@ -187,23 +187,23 @@
 		{
 			color: #aaa;
 		}
-		
+
 	br.clear
 	{
 		clear: both;
 	}
-	
+
 	p, ul, ol, dl, table
 	{
 		margin-bottom: 1em;
 	}
-	
+
 	section,
 	article
 	{
 		margin-bottom: 3em;
 	}
-	
+
 	section > :last-child,
 	article > :last-child
 	{
@@ -226,7 +226,7 @@
 	{
 		display: inline-block;
 	}
-	
+
 		.image img
 		{
 			display: block;
@@ -239,13 +239,13 @@
 		width: 100%;
 		margin: 0 0 2em 0;
 	}
-	
+
 	.image-left
 	{
 		float: left;
 		margin: 0 2em 2em 0;
 	}
-	
+
 	.image-centered
 	{
 		display: block;
@@ -257,7 +257,7 @@
 			margin: 0 auto;
 			width: auto;
 		}
-		
+
 	.button
 	{
 		background-color: #c94663;
@@ -288,13 +288,13 @@
 		{
 			background-color: #d95673;
 		}
-		
+
 		a.button:active,
 		input.button:active
 		{
 			background-color: #b93653;
 		}
-	
+
 		.button-alt
 		{
 			background-color: #364050;
@@ -306,21 +306,21 @@
 			{
 				background-color: #465060;
 			}
-			
+
 			a.button-alt:active,
 			input.button-alt:active
 			{
 				background-color: #263040;
 			}
-	
+
 		.button-small
 		{
 		}
-		
+
 		.button-big
 		{
 		}
-		
+
 		.button-huge
 		{
 		}
@@ -330,12 +330,12 @@
 		list-style: disc;
 		padding-left: 1em;
 	}
-	
+
 		ul.style1 li
 		{
 			padding-left: 0.5em;
 		}
-	
+
 	ol.style1
 	{
 		list-style: decimal;
@@ -350,14 +350,14 @@
 	.pager
 	{
 	}
-	
+
 		.pager .pages
 		{
 			display: inline-block;
 			font-family: 'Open Sans Condensed', sans-serif;
 			font-weight: 700;
 		}
-		
+
 			.pager .pages span
 			{
 				display: inline-block;
@@ -365,7 +365,7 @@
 				text-align: center;
 				margin: 0 0.4em 0 0;
 			}
-	
+
 			.pager .pages a
 			{
 				cursor: pointer;
@@ -385,7 +385,7 @@
 				transition: background-color .25s ease-in-out;
 				box-shadow: inset 0 0.075em 0.25em 0 rgba(0,0,0,0.1);
 			}
-		
+
 			.pager .pages a:hover
 			{
 				background-color: #dadada;
@@ -399,6 +399,15 @@
 				box-shadow: none;
 				text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
 			}
+
+.pager li> a:active,.pager li> a,.pager .pages >.active> a,.pager li > a:focus {
+  background-color: #364050;
+  background-image: url('images/bg1.png');
+  cursor: default;
+  z-index: 2;
+  color: #fff;
+  box-shadow: none;
+}
 
 /*********************************************************************************/
 /* Icons                                                                         */
@@ -414,7 +423,7 @@
 		.fa.solo
 		{
 		}
-		
+
 			.fa.solo span
 			{
 				display: none;
@@ -845,7 +854,7 @@
 			padding: 0.75em 0.5em 0.75em 0.5em;
 			box-shadow: 0 0 0 1px rgba(255,255,255,0.05), inset 0 0 0.25em 0 rgba(0,0,0,0.25);
 		}
-		
+
 		.is-calendar caption
 		{
 			font-weight: 700;
@@ -861,6 +870,16 @@
 		.is-calendar tr
 		{
 		}
+  .starttime .datepicker {
+  /* Original value: margin: 2px 0 0; */
+  font-size:  0.1em  !important ; /* Where X is the amount of pixles to shift it left */
+  background-color: transparent !important;
+  }
+
+.well table {
+    max-height: 10px !important;
+    min-height: 10px !important;
+  }
 
 		.is-calendar td,
 		.is-calendar th
@@ -876,7 +895,7 @@
 			font-weight: 700;
 			color: #fff;
 		}
-		
+
 		.is-calendar td a,
 		.is-calendar td span
 		{
@@ -906,7 +925,7 @@
 			background-color: rgba(200,225,255,0.1);
 			color: #fff;
 		}
-		
+
 		.is-calendar td.today a
 		{
 			background-color: #c94663;
@@ -914,21 +933,21 @@
 			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
 			color: #fff !important;
 		}
-		
+
 	.is-post
 	{
 		position: relative;
 	}
-	
+
 		.is-post .info
 		{
 		}
-		
+
 			.is-post .info .stats
 			{
 				margin: 0;
 			}
-			
+
 			.is-post .info .stats a
 			{
 				font-size: 0.8em;
@@ -936,7 +955,7 @@
 				color: #1b252a;
 				font-weight: 700;
 			}
-	
+
 	.is-recent-posts,
 	.is-recent-comments
 	{
@@ -972,13 +991,13 @@
 		{
 			position: relative;
 		}
-	
+
 			.is-search form input
 			{
 				position: relative;
 				padding-right: 34px;
 			}
-			
+
 			.is-search form:before
 			{
 				display:inline-block;
@@ -991,14 +1010,14 @@
 				-webkit-font-smoothing:antialiased;
 				-moz-osx-font-smoothing:grayscale;
 				content: '\f002';
-				
+
 				filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
 				-webkit-transform:scale(-1, 1);
 				-moz-transform:scale(-1, 1);
 				-ms-transform:scale(-1, 1);
 				-o-transform:scale(-1, 1);
 				transform:scale(-1, 1);
-				
+
 				position: absolute;
 				right: 0.45em;
 				top: 0.45em;
@@ -1019,7 +1038,7 @@
 			border-radius: 0.4em;
 			padding: 1.25em;
 			box-shadow: 0 0 0 1px rgba(255,255,255,0.05), inset 0 0 0.25em 0 rgba(0,0,0,0.25);
-		}	
+		}
 
 /*********************************************************************************/
 /* Wrapper                                                                       */
@@ -1054,7 +1073,7 @@
 			box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075);
 			padding: 0.5em 0 0.5em 0;
 		}
-		
+
 		#nav li:first-child
 		{
 			border: 0;
@@ -1130,17 +1149,17 @@
 				box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075), 0px 1px 0px 0px rgba(255,255,255,0.075);
 				display: block;
 			}
-	
+
 		#sidebar strong, #sidebar b
 		{
 			color: #fff;
 		}
-	
+
 		#sidebar a
 		{
 			color: #d4dde0;
 		}
-		
+
 		#sidebar h2,
 		#sidebar h3,
 		#sidebar h4,
@@ -1154,31 +1173,32 @@
 		{
 			margin: 0 0 1.25em 0;
 		}
-	
+
 		#sidebar section,
 		#sidebar nav
 		{
 			margin: 2em 0 0 0;
 			font-size: 0.9em;
 		}
-		
+
 			#sidebar section:before,
 			#sidebar nav:before
 			{
 				height: 0.5em;
 				margin: 0 0 2em 0;
 			}
-		
+
 /*********************************************************************************/
 /* Content                                                                       */
 /*********************************************************************************/
-		
+
 	#content
 	{
 		position: relative;
 		background-color: #fff;
+    min-height: 75.5em !important;
 	}
-	
+
 		#content:after
 		{
 			content: '';
@@ -1191,7 +1211,7 @@
 			background-image: url('images/bg2.png');
 			opacity: 0.5;
 		}
-	
+
 	#content-inner
 	{
 		position: relative;

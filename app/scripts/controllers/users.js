@@ -21,7 +21,6 @@ angular.module('projectIhmApp')
     getAllUsers();
     function getAllUsers(){
       User.all(function(users){
-
           $scope.users = users;
           $scope.userlength= users.length;
         },

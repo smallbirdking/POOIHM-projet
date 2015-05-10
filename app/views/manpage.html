@@ -1,95 +1,91 @@
-<div id="wrapper">
+
+
+<div id="wrapper" style="width: 99%;max-height: 10%">
 
 <!-- Content -->
-<div id="content">
-  <div id="content-inner">
-
+<div id="content" >
+  <div id="content-inner"  >
 
 
 
     <!-- Post -->
 
-    <article class="is-post is-post-excerpt">
-      <div class="container">
-        <body ng-controller="MainCtrl">
-        <p>{{userSearch}}</p>
-        <ul >
-          <li class="span2 thumbnail" ng-repeat="user in users">
-            <button class="btn btn-large close pull-right" ng-click="delet(user.id)" value="DELET">&times;
 
-              <p> {{user.id}}</p></button> <p>{{user.title}}</p> <hr/><p>{{user.description}}</p>
-          </li>
-        </ul>
-        </body>
-      </div>
-      <!--<header>
-        <h2><a href="#">Welcome to Striped</a></h2>
-        <span class="byline">A free, fully responsive HTML5 site template by HTML5 UP</span>
-      </header>
-      <div class="info">
-        <span class="date"><span class="month">Jan<span>uary</span></span> <span class="day">14</span><span class="year">, 2013</span></span>
-        <ul class="stats">
-          <li><a href="#" class="fa fa-comment">16</a></li>
-          <li><a href="#" class="fa fa-heart">32</a></li>
-          <li><a href="#" class="fa fa-twitter">64</a></li>
-          <li><a href="#" class="fa fa-facebook">128</a></li>
-        </ul>
-      </div>
-      <a href="#" class="image image-full"><img src="images/n33-robot-invader.jpg" alt="" /></a>
-      <p>
-        <strong>Hello!</strong> You're looking at <a href="http://html5up.net/striped/">Striped</a>, a fully responsive HTML5 site template designed by <a href="http://n33.co/">AJ</a>
-        for <a href="http://html5up.net/">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
-        repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
-      </p>
-      <p>
-        Striped is released for free under the <a href="http://html5up.net/license/">Creative Commons Attribution license</a> so feel free to use it for personal projects
-        or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net/">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
-        <a href="http://html5up.net/">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/n33co">Twitter</a> for new releases and updates.
-      </p>-->
+      <div class="row">
+        <div class="col-lg-8">
+          <div ng-controller="MainCtrl">
+            <!--<h1>Tasty Paginated Menu</h1>
+
+            <small>this is in "MyController"</small>-->
 
 
-    </article>
+            <div class="row">
+            <div class="col-xs-4">
+                <h3>Page now: {{ currentPage }}</h3>
+              </div>
+              <!--<div class="col-xs-4">
+                <label for="search">Search:</label>
+                <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+              </div>-->
 
-    <!-- Post -->
+              <div class="col-xs-4">
+                <label for="search" >    items per page:</label>
+                <input type="number" min="1" max="100" class="form-control" ng-model="pageSize" style="margin-left:40em">
+              </div>
+            </div>
+            <br>
+                <ul style="width: 155%">
+                  <li  class="span2 thumbnail" dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                    <article class="is-post is-post-excerpt">
+                      <div class="info">
+                        <span class="date"><span class="month">{{month(meal.createdAt)}}<span>uary</span></span> <span >{{fuck(meal.createdAt)}}</span><span class="year">, 2013</span></span>
+                      </div>
+
+                      <button class="btn btn-large close pull-right" ng-click="delet(user.id)" value="DELET">&times;
+
+                      <p> {{meal.id}}</p></button> <p>{{meal.title}}</p> <hr/><p style="height: 20em">{{meal.description}}</p>
+                      </article>
+                  </li>
+                </ul>
+
+          </div>
 
 
-      <!--<article class="is-post is-post-excerpt">
-        <header>
-          <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
-          <span class="byline">Feugiat interdum sed commodo ipsum consequat dolor nullam metus</span>
-        </header>
-        <div class="info">
-          <span class="date"><span class="month">Jan<span>uary</span></span> <span class="day">8</span><span class="year">, 2013</span></span>
-          <ul class="stats">
-            <li><a href="#" class="fa fa-comment">16</a></li>
-            <li><a href="#" class="fa fa-heart">32</a></li>
-            <li><a href="#" class="fa fa-twitter">64</a></li>
-            <li><a href="#" class="fa fa-facebook">128</a></li>
-          </ul>
+          <div ng-controller="OtherController" >
+            <!--<small>this is in "OtherController"</small>-->
+
+            <div class="text-center" style="margin-left:15em">
+              <dir-pagination-controls  boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/dirPagination.tpl.html"></dir-pagination-controls>
+            </div>
+          </div>
         </div>
-        <a href="#" class="image image-full"><img src="images/fotogrph-dark-stairwell.jpg" alt="" /></a>
-        <p>
-          Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
-          Nunc nulla velit, fermentum quis interdum quis, tate etiam commodo lorem ipsum dolor sit amet dolore.
-          Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
-          Nunc nulla velit, fermentum quis interdum quis, convallis eu sapien. Integer sed ipsum ante.
-        </p>
-      </article>-->
-
-
-      <!-- Pager -->
-      <div class="pager">
-        <!--<a href="#" class="button previous">Previous Page</a>-->
-        <div class="pages">
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <span>&hellip;</span>
-          <a href="#">20</a>
-        </div>
-        <a href="#" class="button next">Next Page</a>
       </div>
+
+
+
+    <!-- <div class="container" >
+       <body ng-controller="MainCtrl">
+       <p>{{userSearch}}</p>
+       <ul style="margin-left:-50px">
+
+         <li class="span2 thumbnail" ng-repeat="user in users" >
+           <article class="is-post is-post-excerpt" style="width: 90%">
+             <p>{{user.createdAt}}</p>
+           <div class="info">
+
+             <span class="date"><span class="month">Jan<span>uary</span></span> <span >{{user.createdAt}}</span><span class="year">, 2013</span></span>
+           </div>
+           <button class="btn btn-large close pull-right" ng-click="delet(user.id)" value="DELET">&times;
+
+             <p> {{user.id}}</p></button> <p>{{user.title}}</p> <hr/><p style="height: 20em">{{user.description}}</p>
+             </article>
+         </li>
+       </ul>
+       </body>
+     </div>-->
+
+
+
 
   </div>
 </div>
@@ -106,40 +102,37 @@
   <nav id="nav">
     <ul>
       <li class="current_page_item"><a href="#">Latest Post</a></li>
-      <li><a href="#">Archives</a></li>
-      <li><a href="#">About Me</a></li>
-      <li><a href="#">Contact Me</a></li>
+      <li><a href="#/users">Add a new note</a></li>
     </ul>
   </nav>
 
   <!-- Search -->
   <section class="is-search">
     <form method="post" action="#">
-      <input type="text" class="text" name="search" placeholder="Search" />
+      <input  ng-model="q" id="search"  type="text" class="text" name="search" placeholder="Search" />
+      <!--<input ng-model="q" type="text" class="text" name="search"  placeholder="Search" id="search" class="form-control" placeholder="Filter text">-->
     </form>
   </section>
 
   <!-- Text -->
-  <section class="is-text-style1">
+  <!--<section class="is-text-style1">
     <div class="inner">
       <p>
         <strong>Striped:</strong> A free and fully responsive HTML5 site
         template designed by <a href="http://n33.co/">AJ</a> for <a href="http://html5up.net/">HTML5 up!</a>
       </p>
     </div>
-  </section>
+  </section>-->
 
   <!-- Recent Posts -->
-  <section class="is-recent-posts">
+  <section class="is-recent-posts" ng-controller="ThirdController">
     <header>
       <h2>Recent Posts</h2>
     </header>
     <ul>
-      <li><a href="#">Nothing happened</a></li>
-      <li><a href="#">My Dearest Cthulhu</a></li>
-      <li><a href="#">The Meme Meme</a></li>
-      <li><a href="#">Now Full Cyborg</a></li>
-      <li><a href="#">Temporal Flux</a></li>
+      <li dir-paginate="drink in drinks | filter:q | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
+             <a  href="#/users">{{drink.title}}</a>
+      </li>
     </ul>
   </section>
 
@@ -156,68 +149,20 @@
   </section>
 
   <!-- Calendar -->
-  <section class="is-calendar">
+
+  <!--<section class="is-calendar">
     <div class="inner">
-      <table>
-        <caption>February 2013</caption>
-        <thead>
-        <tr>
-          <th scope="col" title="Monday">M</th>
-          <th scope="col" title="Tuesday">T</th>
-          <th scope="col" title="Wednesday">W</th>
-          <th scope="col" title="Thursday">T</th>
-          <th scope="col" title="Friday">F</th>
-          <th scope="col" title="Saturday">S</th>
-          <th scope="col" title="Sunday">S</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td colspan="4" class="pad"><span>&nbsp;</span></td>
-          <td><span>1</span></td>
-          <td><span>2</span></td>
-          <td><span>3</span></td>
-        </tr>
-        <tr>
-          <td><span>4</span></td>
-          <td><span>5</span></td>
-          <td><a href="#">6</a></td>
-          <td><span>7</span></td>
-          <td><span>8</span></td>
-          <td><span>9</span></td>
-          <td><a href="#">10</a></td>
-        </tr>
-        <tr>
-          <td><span>11</span></td>
-          <td><span>12</span></td>
-          <td><span>13</span></td>
-          <td class="today"><a href="#">14</a></td>
-          <td><span>15</span></td>
-          <td><span>16</span></td>
-          <td><span>17</span></td>
-        </tr>
-        <tr>
-          <td><span>18</span></td>
-          <td><span>19</span></td>
-          <td><span>20</span></td>
-          <td><span>21</span></td>
-          <td><span>22</span></td>
-          <td><a href="#">23</a></td>
-          <td><span>24</span></td>
-        </tr>
-        <tr>
-          <td><a href="#">25</a></td>
-          <td><span>26</span></td>
-          <td><span>27</span></td>
-          <td><span>28</span></td>
-          <td class="pad" colspan="3"><span>&nbsp;</span></td>
-        </tr>
-        </tbody>
-      </table>
+      <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+      <h4>Inline</h4>
+      <div class="starttime" style="display:inline-block; ">
+        <input type="checkbox" value="show" ng-model="checked"/>
+        <datepicker id="cal" ng-show="checked" ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)" ></datepicker>
+      </div>
     </div>
-  </section>
+  </section>-->
 
   <!-- Copyright -->
+
   <div id="copyright">
     <p>
       &copy; 2013 An Untitled Site.<br />
@@ -232,21 +177,8 @@
 
 
 
-<style>
-  .full button span {
-    background-color: limegreen;
-    border-radius: 32px;
-    color: black;
-  }
-  .partially button span {
-    background-color: orange;
-    border-radius: 32px;
-    color: black;
-  }
-</style>
 
-
-<div ng-controller="MainCtrl">
+<!--<div>
   <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
 
   <h4>Inline</h4>
@@ -255,8 +187,9 @@
 
     <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
   </div>
-
-  <h4>Popup</h4>
+  </div>
+-->
+<!--  <h4>Popup</h4>
   <div class="row">
     <div class="col-md-6">
       <p class="input-group">
@@ -288,54 +221,12 @@
   <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
   <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
 </div>
+-->
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8">
-      <div ng-controller="MyController" class="my-controller">
-        <h1>Tasty Paginated Menu</h1>
-
-        <small>this is in "MyController"</small>
-
-
-        <div class="row">
-          <div class="col-xs-4">
-            <h3>Meals Page: {{ currentPage }}</h3>
-          </div>
-          <div class="col-xs-4">
-            <label for="search">Search:</label>
-            <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
-          </div>
-          <div class="col-xs-4">
-            <label for="search">items per page:</label>
-            <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
-          </div>
-        </div>
-        <br>
-        <div class="panel panel-default">
-          <div class="panel-body">
-
-            <ul>
-              <li dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ meal }}</li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div ng-controller="OtherController" class="other-controller">
-        <small>this is in "OtherController"</small>
-        <div class="text-center">
-          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/dirPagination.tpl.html"></dir-pagination-controls>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <!--</body>
-</html>
+</html>-->
 
 

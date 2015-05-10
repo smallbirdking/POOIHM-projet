@@ -1,13 +1,14 @@
 // Code goes here
 'use strict';
 var myApp = angular.module('projectIhmApp');
-var usrl = 2;
+
 function MyController($scope, User) {
   getAllUsers();
   function getAllUsers(){
     User.all(function (users, userlength){
         $scope.users = users;
         $scope.userlength= users.length;
+        buildMeals();
       },
       function(error){
         console.log(error);
@@ -48,7 +49,7 @@ function MyController($scope, User) {
   };
 
   $scope.currentPage = 1;
-  $scope.pageSize = 10;
+  $scope.pageSize = 2;
   $scope.meals = [];
 
 
@@ -80,22 +81,25 @@ function MyController($scope, User) {
     'in pitta bread'
   ];
 
-
-  var lll=10;
- // lll=$scope.userlength;
+/*var buildMeals = function () {
+  var lll = 10;
+  lll=$scope.userlength;
   for (var i = 1; i <= lll; i++) {
     var dish = dishes[Math.floor(Math.random() * dishes.length)];
     var side = sides[Math.floor(Math.random() * sides.length)];
     $scope.meals.push('meal ' + i + ': ' + dish + ' ' + side);
   }
-  /**
-  var i = 0;
-  angular.forEach($scope.users,function(user){
-    var dish = dishes[Math.floor(Math.random() * dishes.length)];
-    var side = sides[Math.floor(Math.random() * sides.length)];
-    $scope.meals.push('meal ' + user.id + ': ' + dish + ' ' + side);
-  });
-   **/
+};*/
+
+ $scope.meals = [];
+  var buildMeals = function () {
+    var i = 0;
+    angular.forEach($scope.users, function (user) {
+      $scope.meals.push(user);
+      //myFunction(user);
+    });
+
+  };
 
 
   $scope.pageChangeHandler = function(num) {
@@ -109,5 +113,10 @@ function OtherController($scope) {
   };
 }
 
+
+
+
 myApp.controller('MyController', MyController);
 myApp.controller('OtherController', OtherController);
+
+

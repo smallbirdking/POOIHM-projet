@@ -1,9 +1,32 @@
-/*'use strict';
+'use strict';
 
 
 angular.module('projectIhmApp')
+  .controller('InputCtrl', function($scope, $http) {
+    $scope.users = [];
+    $scope.totalUsers = 0;
+    $scope.usersPerPage = 25; // this should match however many results your API puts on one page
+    getResultsPage(1);
 
-  .service('notesService', function () {
+    $scope.pagination = {
+      current: 1
+    };
+
+    $scope.pageChanged = function(newPage) {
+      getResultsPage(newPage);
+    };
+
+    function getResultsPage(pageNumber) {
+      // this is just an example, in reality this stuff should be in a service
+      $http.get('http://localhost:3000/api/Projects/' + pageNumber)
+        .then(function(result) {
+          $scope.users = result.data.Items;
+          $scope.totalUsers = result.data.Count
+        });
+    }
+  });
+
+/*  .service('notesService', function () {
     var data = [
       {id:1, title:'Note 1' , contents: 'kkkkk'},
       {id:2, title:'Note 2', contents: 'pppp'}

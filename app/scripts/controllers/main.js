@@ -6,7 +6,8 @@
  * # MainCtrl
  * Controller of the projectIhmApp
  */
-angular.module('projectIhmApp').controller('MainCtrl', function ($scope,User) {
+angular.module('projectIhmApp')
+  .controller('MainCtrl', function ($scope,User) {
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',
@@ -17,6 +18,8 @@ angular.module('projectIhmApp').controller('MainCtrl', function ($scope,User) {
   function getAllUsers(){
     User.all(function(users){
         $scope.users = users;
+        buildMeals();
+        buildMeals2(users);
       },
       function(error){
         console.log(error);
@@ -42,6 +45,7 @@ angular.module('projectIhmApp').controller('MainCtrl', function ($scope,User) {
   $scope.search = function(id) {
     User.get(function(users){
         $scope.userSearch = users;
+
       },
       function(error){
         console.log(error);
@@ -122,4 +126,102 @@ angular.module('projectIhmApp').controller('MainCtrl', function ($scope,User) {
 
     return '';
   };
+
+
+    $scope.currentPage = 1;
+    $scope.pageSize = 2;
+    $scope.meals = [];
+
+    $scope.meals2 = [];
+    var buildMeals = function () {
+      var i = 0;
+      angular.forEach($scope.users, function (user) {
+        $scope.meals.push(user);
+      });
+    };
+
+    var buildMeals2 = function (users) {
+      var i = 0;
+      angular.forEach(users, function (user) {
+        $scope.meals2.push(user);
+      });
+    };
+
+    $scope.pageChangeHandler = function(num) {
+      console.log('meals page changed to ' + num);
+    };
+
+    $scope.fuck=function (t) {
+       var d = new Date(t);
+       console.log(t);
+      var day = d.getDate();
+      if(day.toString().length == 1){
+        day="0"+day.toString();
+      }
+      return day;
+     };
+
+    $scope.month=function (t) {
+      var d = new Date(t);
+      var monthArray=new Array("January","February","March","April","May","June","July","August", "September","October","November","December");
+      console.log(t);
+      var month = d.getMonth();
+      return monthArray[month];
+    };
+
+    $scope.pageChangeHandler = function(num) {
+      console.log('going to page ' + num);
+    };
+   /* $(function(){
+      $("#starttime").datepicker({
+        dateFormat: 'yy-mm-dd',//日期格式
+        changeMonth:true,
+        changeYear:true
+    });
+    $("#ui-datepicker-div").css('font-size','0.9em') //改变大小
+  });*/
+
 });
+
+function ThirdController($scope,User) {
+
+  getAllUsers();
+  function getAllUsers(){
+    User.all(function(users){
+        $scope.users = users;
+        buildMeals2();
+      },
+      function(error){
+        console.log(error);
+      }
+    );
+  }
+
+  $scope.currentPage = 1;
+  $scope.pageSize = 5;
+  $scope.drinks = [];
+  var buildMeals2 = function () {
+    angular.forEach($scope.users, function (user) {
+      console.log(user);
+      $scope.drinks.push(user);
+    });
+  };
+  $scope.pageChangeHandler = function(num) {
+    console.log('drinks page changed to ' + num);
+  };
+  /*var buildMeals2 = function () {
+    angular.forEach($scope.users, function (user) {
+      var uu= user;
+      $scope.drinks.push(uu);
+    });
+  };*/
+}
+
+function OtherController($scope) {
+  $scope.pageChangeHandler = function(num) {
+    console.log('going to page ' + num);
+  };
+}
+
+
+

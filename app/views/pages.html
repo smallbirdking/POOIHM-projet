@@ -39,7 +39,11 @@
           <div class="panel-body">
 
             <ul>
-              <li dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ meal }}</li>
+              <li class="span2 thumbnail" dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                <button class="btn btn-large close pull-right" ng-click="delet(user.id)" value="DELET">&times;
+
+                  <p> {{meal.id}}</p></button> <p>{{meal.title}}</p> <hr/><p style="height: 20em">{{meal.description}}</p>
+              </li>
 
             </ul>
           </div>
@@ -58,16 +62,16 @@
 
 
 <div class="container">
-  <body ng-controller="UsersCtrl">
+  <body ng-controller="MyController">
 
   <h3>Search result</h3>
   <p>{{userSearch}}</p>
   <h3>Liste des utilisateurs:</h3>
-  <ul >
+  <ul>
     <li class="span2 thumbnail" ng-repeat="user in users">
       <button class="btn btn-large close pull-right" ng-click="delet(user.id)" value="DELET">&times;
 
-        <p> {{user.id}}</p></button> <p>{{user.title}}</p> <hr/><p>{{user.description}}</p>
+        <p > {{user.id}}</p></button> <p  >{{user.title}}</p> <hr/><p style="height: 20em">{{user.description}}</p>
     </li>
   </ul>
   </body>

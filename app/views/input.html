@@ -33,3 +33,13 @@
   </div>
 </div>
 -->
+<div ng-controller="InputCtrl">
+  <table>
+    <tr dir-paginate="user in users | itemsPerPage: 25" total-items="totalUsers" current-page="pagination.current">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </table>
+
+  <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+</div>
