@@ -17,10 +17,12 @@ angular.module('projectIhmApp')
       'AngularJS',
       'Karma'
     ];
+
     $scope.id=$routeParams.id;
 
+    $scope.menuState={show: true};
 
-    getAllUsers();
+      getAllUsers();
     function getAllUsers(){
       User.all(function(users){
           $scope.users = users;
@@ -63,8 +65,6 @@ angular.module('projectIhmApp')
 
     };
 
-
-
     $scope.delet = function(id) {
       if(id !== '') {
         User.delete(id);
@@ -74,8 +74,14 @@ angular.module('projectIhmApp')
 
 
     var getid = function(id) {
+
+      //ss=id;
       User.get(function(users){
           $scope.user = users;
+          if(id) {
+            $scope.menuState2 = {show: true};
+            $scope.menuState = {show: false};
+          }
 
         },
         function(error){

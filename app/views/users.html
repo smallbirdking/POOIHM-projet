@@ -7,8 +7,8 @@
     {{user.description}}
   </textarea>
 
-    <input  class="btn2" type="submit" ng-click="post(user)" value="ADD" />
-    <input type="submit" ng-click="put(user)" value="CHANGE" />
+    <input ng-show='menuState.show' class="btn2" type="submit" ng-click="post(user)" value="ADD" />
+    <input ng-show='menuState2.show' type="submit" ng-click="put(user)" value="CHANGE" />
     <!--<input type="submit" ng-click="getid(id)" value="SEARCH" />-->
   </form>
   <!--<pre>user = {{user | json}}</pre>

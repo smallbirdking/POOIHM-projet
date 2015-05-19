@@ -127,8 +127,6 @@ angular.module('projectIhmApp')
 
     return '';
   };*/
-
-
     $scope.currentPage = 1;
     $scope.pageSize = 2;
     $scope.meals = [];
@@ -170,18 +168,6 @@ angular.module('projectIhmApp')
       return monthArray[month];
     };
 
-    $scope.pageChangeHandler = function(num) {
-      //console.log('going to page ' + num);
-    };
-   /* $(function(){
-      $("#starttime").datepicker({
-        dateFormat: 'yy-mm-dd',//日期格式
-        changeMonth:true,
-        changeYear:true
-    });
-    $("#ui-datepicker-div").css('font-size','0.9em') //改变大小
-  });*/
-
 });
 
 function ThirdController($scope,User) {
@@ -206,9 +192,6 @@ function ThirdController($scope,User) {
       console.log(user);
       $scope.drinks.push(user);
     });
-  };
-  $scope.pageChangeHandler = function(num) {
-    console.log('drinks page changed to ' + num);
   };
   /*var buildMeals2 = function () {
     angular.forEach($scope.users, function (user) {
