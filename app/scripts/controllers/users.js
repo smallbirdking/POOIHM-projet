@@ -11,7 +11,7 @@
  * Controller of the pooIhmExemplesApp
  */
 angular.module('projectIhmApp')
-  .controller('UsersCtrl', ['$scope','$routeParams','User', function ($scope,$routeParams,User) {
+  .controller('UsersCtrl', ['$scope','$routeParams','User','$window', function ($scope,$routeParams,User,$window) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -38,6 +38,7 @@ angular.module('projectIhmApp')
       if(user.title !== '' || user.description !== ''){
         User.post(user);
         getAllUsers();
+        $window.location.assign("/");
       }
     };
 
@@ -45,6 +46,7 @@ angular.module('projectIhmApp')
       if(user.id !== '' && (user.title !== '' || user.description !== '')){
         User.put(user.id,user);
         getAllUsers();
+        $window.location.assign("/");
       }
     };
 
@@ -83,8 +85,6 @@ angular.module('projectIhmApp')
     };
 
   }]);
-
-
 
 function AutoGrowTextArea(textField)
 {

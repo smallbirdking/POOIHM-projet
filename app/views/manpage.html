@@ -2,13 +2,13 @@
 
 <div id="wrapper" style="width: 99%;max-height: 10%">
 
-<!-- Content -->
-<div id="content" >
-  <div id="content-inner"  >
+  <!-- Content -->
+  <div id="content" >
+    <div id="content-inner"  >
 
 
 
-    <!-- Post -->
+      <!-- Post -->
 
 
       <div class="row">
@@ -19,9 +19,9 @@
             <small>this is in "MyController"</small>-->
 
 
-            <div class="row">
-            <div class="col-xs-4">
-                <h3>Page now: {{ currentPage }}</h3>
+            <div class="row" style="font-style: italic;">
+              <div class="col-xs-4">
+                <h3>Page now:&nbsp;&nbsp;&nbsp;&nbsp;{{ currentPage }}</h3>
               </div>
               <!--<div class="col-xs-4">
                 <label for="search">Search:</label>
@@ -29,24 +29,24 @@
               </div>-->
 
               <div class="col-xs-4">
-                <label for="search" >    items per page:</label>
-                <input type="number" min="1" max="100" class="form-control" ng-model="pageSize" style="margin-left:40em">
+                <label for="search" > items per page:</label>
+                <input type="number" min="1" max="100" class="form-control" ng-model="pageSize" style="margin-left:10em;margin-top:-1.8em">
               </div>
             </div>
             <br>
-                <ul style="width: 155%">
-                  <li  class="span2 thumbnail" dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-                    <article class="is-post is-post-excerpt">
-                      <div class="info">
-                        <span class="date"><span class="month">{{month(meal.createdAt)}}<span>uary</span></span> <span >{{fuck(meal.createdAt)}}</span><span class="year">, 2013</span></span>
-                      </div>
+            <ul style="width: 155%;">
+              <li  class="span2 thumbnail" dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage" ><!--style="border:dotted 1px #364050;border-radius: 15px;"-->
+                <article class="is-post is-post-excerpt">
+                  <div class="info">
+                    <span class="date"><span class="month">{{month(meal.createdAt)}}<span>uary</span></span> <span >{{fuck(meal.createdAt)}}</span><span class="year">, 2013</span></span>
+                  </div>
 
-                      <button class="btn btn-large close pull-right" ng-click="delet(meal.id)" value="DELET">&times;
+                  <button class="btn btn-large close pull-right" ng-click="delet(meal.id)" value="DELET">&times;
 
-                      <p> {{meal.id}}</p></button> <a  href="#/{{meal.id}}">{{meal.title}}</a> <hr/><p style="height: 20em">{{meal.description}}</p>
-                      </article>
-                  </li>
-                </ul>
+                    <p> {{meal.id}}</p></button> <a href="#/{{meal.id}}">{{meal.title}}</a> <hr/><p style="height: 20em">{{meal.description}}</p>
+                </article>
+              </li>
+            </ul>
           </div>
 
 
@@ -62,115 +62,115 @@
 
 
 
-    <!-- <div class="container" >
-       <body ng-controller="MainCtrl">
-       <p>{{userSearch}}</p>
-       <ul style="margin-left:-50px">
+      <!-- <div class="container" >
+         <body ng-controller="MainCtrl">
+         <p>{{userSearch}}</p>
+         <ul style="margin-left:-50px">
 
-         <li class="span2 thumbnail" ng-repeat="user in users" >
-           <article class="is-post is-post-excerpt" style="width: 90%">
-             <p>{{user.createdAt}}</p>
-           <div class="info">
+           <li class="span2 thumbnail" ng-repeat="user in users" >
+             <article class="is-post is-post-excerpt" style="width: 90%">
+               <p>{{user.createdAt}}</p>
+             <div class="info">
 
-             <span class="date"><span class="month">Jan<span>uary</span></span> <span >{{user.createdAt}}</span><span class="year">, 2013</span></span>
-           </div>
-           <button class="btn btn-large close pull-right" ng-click="delet(user.id)" value="DELET">&times;
+               <span class="date"><span class="month">Jan<span>uary</span></span> <span >{{user.createdAt}}</span><span class="year">, 2013</span></span>
+             </div>
+             <button class="btn btn-large close pull-right" ng-click="delet(user.id)" value="DELET">&times;
 
-             <p> {{user.id}}</p></button> <p>{{user.title}}</p> <hr/><p style="height: 20em">{{user.description}}</p>
-             </article>
-         </li>
-       </ul>
-       </body>
-     </div>-->
-
-
+               <p> {{user.id}}</p></button> <p>{{user.title}}</p> <hr/><p style="height: 20em">{{user.description}}</p>
+               </article>
+           </li>
+         </ul>
+         </body>
+       </div>-->
 
 
-  </div>
-</div>
 
-<!-- Sidebar -->
-<div id="sidebar">
 
-  <!-- Logo -->
-  <div id="logo">
-    <h1>STRIPED</h1>
+    </div>
   </div>
 
-  <!-- Nav -->
-  <nav id="nav">
-    <ul>
-      <li class="current_page_item"><a href="#">Latest Post</a></li>
-      <li><a href="#/users">Add a new note</a></li>
-    </ul>
-  </nav>
+  <!-- Sidebar -->
+  <div id="sidebar">
 
-  <!-- Search -->
-  <section class="is-search">
-    <form method="post" action="#">
-      <input  ng-model="q" id="search"  type="text" class="text" name="search" placeholder="Search" />
-      <!--<input ng-model="q" type="text" class="text" name="search"  placeholder="Search" id="search" class="form-control" placeholder="Filter text">-->
-    </form>
-  </section>
+    <!-- Logo -->
+    <div id="logo">
+      <h1>EasyNOTE</h1>
+    </div>
 
-  <!-- Text -->
-  <!--<section class="is-text-style1">
-    <div class="inner">
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current_page_item"><a >Function</a></li>
+        <li><a href="#/users">Add a new note</a></li>
+      </ul>
+    </nav>
+
+    <!-- Search -->
+    <section class="is-search">
+      <form method="post" action="#">
+        <input  ng-model="q" id="search"  type="text" class="text" name="search" placeholder="Search" />
+        <!--<input ng-model="q" type="text" class="text" name="search"  placeholder="Search" id="search" class="form-control" placeholder="Filter text">-->
+      </form>
+    </section>
+
+    <!-- Text -->
+    <!--<section class="is-text-style1">
+      <div class="inner">
+        <p>
+          <strong>Striped:</strong> A free and fully responsive HTML5 site
+          template designed by <a href="http://n33.co/">AJ</a> for <a href="http://html5up.net/">HTML5 up!</a>
+        </p>
+      </div>
+    </section>-->
+
+    <!-- Recent Posts -->
+    <section class="is-recent-posts" ng-controller="ThirdController">
+      <header>
+        <h2>Recent Posts</h2>
+      </header>
+      <ul>
+        <li dir-paginate="drink in drinks | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
+          <a  href="#/{{drink.id}}">{{drink.title}}</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Recent Comments
+    <section class="is-recent-comments">
+      <header>
+        <h2>Recent Comments</h2>
+      </header>
+      <ul>
+        <li>case on <a href="#">Now Full Cyborg</a></li>
+        <li>molly on <a href="#">Untitled Post</a></li>
+        <li>case on <a href="#">Temporal Flux</a></li>
+      </ul>
+    </section>-->
+
+    <!-- Calendar -->
+
+    <!--<section class="is-calendar">
+      <div class="inner">
+        <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+        <h4>Inline</h4>
+        <div class="starttime" style="display:inline-block; ">
+          <input type="checkbox" value="show" ng-model="checked"/>
+          <datepicker id="cal" ng-show="checked" ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)" ></datepicker>
+        </div>
+      </div>
+    </section>
+
+    <!-- Copyright -->
+
+    <div id="copyright">
       <p>
-        <strong>Striped:</strong> A free and fully responsive HTML5 site
-        template designed by <a href="http://n33.co/">AJ</a> for <a href="http://html5up.net/">HTML5 up!</a>
+        &copy; 2015 Polytech SI4.<br />
+        Images: <a href="http://n33.co">n33</a>, <a href="http://fotogrph.com">fotogrph</a><br />
+        Design: <a href="http://html5up.net/">HTML5 UP</a>
       </p>
     </div>
-  </section>-->
 
-  <!-- Recent Posts -->
-  <section class="is-recent-posts" ng-controller="ThirdController">
-    <header>
-      <h2>Recent Posts</h2>
-    </header>
-    <ul>
-      <li dir-paginate="drink in drinks | filter:q | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
-             <a  href="#/{{drink.id}}">{{drink.title}}</a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Recent Comments -->
-  <section class="is-recent-comments">
-    <header>
-      <h2>Recent Comments</h2>
-    </header>
-    <ul>
-      <li>case on <a href="#">Now Full Cyborg</a></li>
-      <li>molly on <a href="#">Untitled Post</a></li>
-      <li>case on <a href="#">Temporal Flux</a></li>
-    </ul>
-  </section>
-
-  <!-- Calendar -->
-
-  <!--<section class="is-calendar">
-    <div class="inner">
-      <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-      <h4>Inline</h4>
-      <div class="starttime" style="display:inline-block; ">
-        <input type="checkbox" value="show" ng-model="checked"/>
-        <datepicker id="cal" ng-show="checked" ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)" ></datepicker>
-      </div>
-    </div>
-  </section>-->
-
-  <!-- Copyright -->
-
-  <div id="copyright">
-    <p>
-      &copy; 2013 An Untitled Site.<br />
-      Images: <a href="http://n33.co">n33</a>, <a href="http://fotogrph.com">fotogrph</a><br />
-      Design: <a href="http://html5up.net/">HTML5 UP</a>
-    </p>
   </div>
-
-</div>
 
 </div>
 
@@ -227,5 +227,4 @@
 
 <!--</body>
 </html>-->
-
 

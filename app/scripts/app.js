@@ -29,15 +29,6 @@ angular
         templateUrl: 'views/users.html',
         controller: 'UsersCtrl'
       })
-
-      .when('/contact', {
-        templateUrl: 'views/pages.html',
-        controller: 'MyController'
-      })
-      .when('/input', {
-        templateUrl: 'views/input.html',
-        controller: 'InputCtrl'
-      })
       .when('/:id', {
         templateUrl: 'views/users.html',
         controller: 'UsersCtrl'

@@ -62,7 +62,7 @@ angular.module('projectIhmApp')
   };
 
 
-  $scope.today = function() {
+  /*$scope.today = function() {
     $scope.dt = new Date();
   };
   $scope.today();
@@ -126,7 +126,7 @@ angular.module('projectIhmApp')
     }
 
     return '';
-  };
+  };*/
 
 
     $scope.currentPage = 1;
