@@ -7,16 +7,16 @@
  * Controller of the projectIhmApp
  */
 angular.module('projectIhmApp')
-  .controller('MainCtrl', function ($scope, User) {
+  .controller('MainCtrl', function ($scope, Edit) {
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',
     'Karma'
   ];
 
-  getAllUsers();
-  function getAllUsers(){
-    User.all(function(users){
+    getAllNotes();
+  function getAllNotes(){
+    Edit.all(function(users){
         $scope.users = users;
         buildMeals();
         buildMeals2(users);
@@ -30,20 +30,20 @@ angular.module('projectIhmApp')
 
   $scope.post = function(user) {
     if(user.title !== '' || user.description !== ''){
-      User.post(user);
-      getAllUsers();
+      Edit.post(user);
+      getAllNotes();
     }
   };
 
   $scope.put = function(user) {
     if(user.id !== '' && (user.title !== '' || user.description !== '')){
-      User.put(user.id,user);
-      getAllUsers();
+      Edit.put(user.id,user);
+      getAllNotes();
     }
   };
 
   $scope.search = function(id) {
-    User.get(function(users){
+    Edit.get(function(users){
         $scope.userSearch = users;
 
       },
@@ -55,8 +55,8 @@ angular.module('projectIhmApp')
 
   $scope.delet = function(id) {
     if(id !== '') {
-      User.delete(id);
-      getAllUsers();
+      Edit.delete(id);
+      getAllNotes();
       window.location.reload();
     }
   };
@@ -129,20 +129,11 @@ angular.module('projectIhmApp')
   };*/
     $scope.currentPage = 1;
     $scope.pageSize = 2;
-    $scope.meals = [];
-
-    $scope.meals2 = [];
+    $scope.notes = [];
     var buildMeals = function () {
       var i = 0;
       angular.forEach($scope.users, function (user) {
-        $scope.meals.push(user);
-      });
-    };
-
-    var buildMeals2 = function (users) {
-      var i = 0;
-      angular.forEach(users, function (user) {
-        $scope.meals2.push(user);
+        $scope.notes.push(user);
       });
     };
 
@@ -150,7 +141,7 @@ angular.module('projectIhmApp')
       //console.log('meals page changed to ' + num);
     };
 
-    $scope.fuck=function (t) {
+    $scope.getdate=function (t) {
        var d = new Date(t);
        //console.log(t);
       var day = d.getDate();
@@ -170,11 +161,10 @@ angular.module('projectIhmApp')
 
 });
 
-function ThirdController($scope,User) {
-
-  getAllUsers();
-  function getAllUsers(){
-    User.all(function(users){
+function ThirdController($scope,Edit) {
+  getAllNotes();
+  function getAllNotes(){
+    Edit.all(function(users){
         $scope.users = users;
         buildMeals2();
       },
@@ -186,11 +176,11 @@ function ThirdController($scope,User) {
 
   $scope.currentPage = 1;
   $scope.pageSize = 5;
-  $scope.drinks = [];
+  $scope.recents = [];
   var buildMeals2 = function () {
     angular.forEach($scope.users, function (user) {
       console.log(user);
-      $scope.drinks.push(user);
+      $scope.recents.push(user);
     });
   };
   /*var buildMeals2 = function () {

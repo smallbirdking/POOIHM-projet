@@ -11,7 +11,7 @@
  * Controller of the pooIhmExemplesApp
  */
 angular.module('projectIhmApp')
-  .controller('UsersCtrl', ['$scope','$routeParams','User','$window', function ($scope,$routeParams,User,$window) {
+  .controller('EditsCtrl', ['$scope','$routeParams','Edit','$window', function ($scope,$routeParams,Edit,$window) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,11 +20,11 @@ angular.module('projectIhmApp')
 
     $scope.id=$routeParams.id;
 
-    $scope.menuState={show: true};
+    $scope.buttonState={show: true};
 
-      getAllUsers();
-    function getAllUsers(){
-      User.all(function(users){
+      getAllNotes();
+    function getAllNotes(){
+      Edit.all(function(users){
           $scope.users = users;
           $scope.userlength= users.length;
           getid( $scope.id);
@@ -38,22 +38,22 @@ angular.module('projectIhmApp')
 
     $scope.post = function(user) {
       if(user.title !== '' || user.description !== ''){
-        User.post(user);
-        getAllUsers();
+        Edit.post(user);
+        getAllNotes();
         $window.location.assign("/");
       }
     };
 
     $scope.put = function(user) {
       if(user.id !== '' && (user.title !== '' || user.description !== '')){
-        User.put(user.id,user);
-        getAllUsers();
+        Edit.put(user.id,user);
+        getAllNotes();
         $window.location.assign("/");
       }
     };
 
     $scope.search = function(id) {
-      User.get(function(users){
+      Edit.get(function(users){
         $scope.userSearch = users;
 
           getid();
@@ -67,8 +67,8 @@ angular.module('projectIhmApp')
 
     $scope.delet = function(id) {
       if(id !== '') {
-        User.delete(id);
-        getAllUsers();
+        Edit.delete(id);
+        getAllNotes();
       }
     };
 
@@ -76,13 +76,12 @@ angular.module('projectIhmApp')
     var getid = function(id) {
 
       //ss=id;
-      User.get(function(users){
+      Edit.get(function(users){
           $scope.user = users;
           if(id) {
-            $scope.menuState2 = {show: true};
-            $scope.menuState = {show: false};
+            $scope.buttonState2 = {show: true};
+            $scope.buttonState = {show: false};
           }
-
         },
         function(error){
           console.log(error);

@@ -1,5 +1,5 @@
 <div class="container">
-  <body ng-controller="UsersCtrl">
+  <body ng-controller="EditsCtrl">
   <form novalidate class="simple-form" >
     <!--ID: <input type="hidden" ng-model="user.id"/><br />-->
      <span style=" font-style: italic; font-size: 30px;">  Title: </span> <input  id="p1" type="text" ng-model="user.title" placeholder="Add a name of your note" /><br />
@@ -7,8 +7,8 @@
     {{user.description}}
   </textarea>
 
-    <input ng-show='menuState.show' class="btn2" type="submit" ng-click="post(user)" value="ADD" />
-    <input ng-show='menuState2.show' type="submit" ng-click="put(user)" value="CHANGE" />
+    <input ng-show='buttonState.show' class="btn2" type="submit" ng-click="post(user)" value="ADD" />
+    <input ng-show='buttonState2.show' type="submit" ng-click="put(user)" value="CHANGE" />
     <!--<input type="submit" ng-click="getid(id)" value="SEARCH" />-->
   </form>
   <!--<pre>user = {{user | json}}</pre>

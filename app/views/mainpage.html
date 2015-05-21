@@ -35,15 +35,15 @@
             </div>
             <br>
             <ul style="width: 155%;">
-              <li  class="span2 thumbnail" dir-paginate="meal in meals | filter:q |orderBy:'title'| itemsPerPage: pageSize" current-page="currentPage" ><!--style="border:dotted 1px #364050;border-radius: 15px;"-->
+              <li  class="span2 thumbnail" dir-paginate="note in notes | filter:q |orderBy:'title'| itemsPerPage: pageSize" current-page="currentPage" ><!--style="border:dotted 1px #364050;border-radius: 15px;"-->
                 <article class="is-post is-post-excerpt">
                   <div class="info">
-                    <span class="date"><span class="month">{{month(meal.createdAt)}}<span>uary</span></span> <span >{{fuck(meal.createdAt)}}</span><span class="year">, 2013</span></span>
+                    <span class="date"><span class="month">{{month(note.createdAt)}}<span>uary</span></span> <span >{{getdate(note.createdAt)}}</span><span class="year">, 2013</span></span>
                   </div>
 
-                  <button class="btn btn-large close pull-right" ng-click="delet(meal.id)" value="DELET">&times;
+                  <button class="btn btn-large close pull-right" ng-click="delet(note.id)" value="DELET">&times;
 
-                    <p> {{meal.id}}</p></button> <a href="#/{{meal.id}}">{{meal.title}}</a> <hr/><p style="height: 20em">{{meal.description}}</p>
+                    <p> {{note.id}}</p></button> <a href="#/{{note.id}}">{{note.title}}</a> <hr/><p style="height: 20em">{{note.description}}</p>
                 </article>
               </li>
             </ul>
@@ -90,7 +90,7 @@
   </div>
 
   <!-- Sidebar -->
-  <div id="sidebar">
+  <div id="sidebar" style="height: 100%">
 
     <!-- Logo -->
     <div id="logo">
@@ -101,7 +101,7 @@
     <nav id="nav">
       <ul>
         <li class="current_page_item"><a >Function</a></li>
-        <li><a href="#/users">Add a new note</a></li>
+        <li><a href="#/edit">Add a new note</a></li>
       </ul>
     </nav>
 
@@ -129,8 +129,8 @@
         <h2>Recent Posts</h2>
       </header>
       <ul>
-        <li dir-paginate="drink in drinks|orderBy:'title' | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
-          <a  href="#/{{drink.id}}">{{drink.title}}</a>
+        <li dir-paginate="recent in recents|orderBy:'title' | itemsPerPage: pageSize" current-page="currentPage" pagination-id="recentsPagination">
+          <a  href="#/{{recent.id}}">{{recent.title}}</a>
         </li>
       </ul>
     </section>
@@ -161,8 +161,7 @@
     </section>
 
     <!-- Copyright -->
-
-    <div id="copyright">
+    <div id="copyright"  style="position: relative;margin-top: 20em;height: auto; ">
       <p>
         &copy; 2015 Polytech SI4.<br />
         Images: <a href="http://n33.co">n33</a>, <a href="http://fotogrph.com">fotogrph</a><br />

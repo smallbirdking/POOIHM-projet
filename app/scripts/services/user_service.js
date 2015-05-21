@@ -2,7 +2,7 @@
 
 
 angular.module('projectIhmApp')
-  .factory('User',['$http',function($http) {
+  .factory('Edit',['$http',function($http) {
     var obj = {
       post: function(data) {
         $http.post('http://localhost:3000/api/Projects',data)

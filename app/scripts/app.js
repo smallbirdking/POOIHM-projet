@@ -22,16 +22,16 @@ angular
   .config(['$routeProvider',function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/manpage.html',
+        templateUrl: '../views/mainpage.html',
         controller: 'MainCtrl'
       })
       .when('/users', {
-        templateUrl: 'views/users.html',
-        controller: 'UsersCtrl'
+        templateUrl: '../views/edit.html',
+        controller: 'EditsCtrl'
       })
       .when('/:id', {
-        templateUrl: 'views/users.html',
-        controller: 'UsersCtrl'
+        templateUrl: '../views/edit.html',
+        controller: 'EditsCtrl'
       })
       .otherwise({
         redirectTo: '/'
