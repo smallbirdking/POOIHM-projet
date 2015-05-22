@@ -22,11 +22,11 @@ angular.module('projectIhmApp')
 
     $scope.buttonState={show: true};
 
-      getAllNotes();
+    getAllNotes();
     function getAllNotes(){
-      Edit.all(function(users){
-          $scope.users = users;
-          $scope.userlength= users.length;
+      Edit.all(function(notes){
+          $scope.users = notes;
+          $scope.userlength= notes.length;
           getid( $scope.id);
         },
         function(error){
@@ -36,26 +36,25 @@ angular.module('projectIhmApp')
     }
 
 
-    $scope.post = function(user) {
-      if(user.title !== '' || user.description !== ''){
-        Edit.post(user);
+    $scope.post = function(note) {
+      if(note.title !== '' || note.description !== ''){
+        Edit.post(note);
         getAllNotes();
         $window.location.assign("/");
       }
     };
 
-    $scope.put = function(user) {
-      if(user.id !== '' && (user.title !== '' || user.description !== '')){
-        Edit.put(user.id,user);
+    $scope.put = function(note) {
+      if(note.id !== '' && (note.title !== '' || note.description !== '')){
+        Edit.put(note.id,note);
         getAllNotes();
         $window.location.assign("/");
       }
     };
 
     $scope.search = function(id) {
-      Edit.get(function(users){
-        $scope.userSearch = users;
-
+      Edit.get(function(notes){
+        $scope.userSearch = notes;
           getid();
       },
       function(error){
@@ -76,8 +75,8 @@ angular.module('projectIhmApp')
     var getid = function(id) {
 
       //ss=id;
-      Edit.get(function(users){
-          $scope.user = users;
+      Edit.get(function(notes){
+          $scope.user = notes;
           if(id) {
             $scope.buttonState2 = {show: true};
             $scope.buttonState = {show: false};

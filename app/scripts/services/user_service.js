@@ -10,12 +10,12 @@ angular.module('projectIhmApp')
           .error();
       },
 
-      get: function (successCB,failCB,useId) {
-        $http.get('http://localhost:3000/api/Projects/'+useId)
+      get: function (successCB,failCB,noteId) {
+        $http.get('http://localhost:3000/api/Projects/'+noteId)
           .success(function (Result){
             if (Result.status === 'success') {
-              var user = Result.data;
-              successCB(user);
+              var note = Result.data;
+              successCB(note);
             }
           })
           .error(function (Error){
@@ -23,13 +23,13 @@ angular.module('projectIhmApp')
           });
       },
 
-      put: function(useId,data) {
-        $http.put('http://localhost:3000/api/Projects/'+useId,data)
+      put: function(noteid,data) {
+        $http.put('http://localhost:3000/api/Projects/'+noteid,data)
           .error();
       },
 
-      delete: function (useId) {
-        $http.delete('http://localhost:3000/api/Projects/'+useId)
+      delete: function (noteid) {
+        $http.delete('http://localhost:3000/api/Projects/'+noteid)
           .success()
           .error();
       },
@@ -38,8 +38,8 @@ angular.module('projectIhmApp')
         $http.get('http://localhost:3000/api/Projects')
           .success(function (Result) {
             if (Result.status === 'success') {
-              var users = Result.data;
-              successCB(users);
+              var notes = Result.data;
+              successCB(notes);
             }
           })
           .error(function (Error) {
